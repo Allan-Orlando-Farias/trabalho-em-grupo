@@ -1,34 +1,50 @@
-function menu() {
+// LUIZ
+
+while (true) {
+    function menu() {
     console.log("1) Cadastrar aluno\n2)...")
     let escolha = +prompt("Digite a sua escolha")
-}
-
-function cadastrandoAluno() {
-    let alunos = []
-}
-
-function editarInformacao() {
-    if (matricula === matricula) {
-        // não mudamos
     }
-}
-
-function cadastrarNotas() {
-    nota = +prompt("Digite as notas")
-}
-
-function listarAlunos() {
-    //mostrar tudo
-}
-
-function martiz() {
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 6; j++) {
-            // cadastra a matriz
-        } 
-    }
-}
-
-function finalizando() {
     if (menu === 0) break
+}
+
+let alunos = []
+colocar uns ifs? {
+    // LUCAS
+
+    function cadastrandoAluno() {
+        let aluno = String(prompt("Digite"))
+        alunos.push(aluno)
+        let matricula = +prompt("Digite")
+        alunos.push(matricula)
+        // pedir nome e matrícula
+    }
+
+    // ALLAN
+
+    function editarInformacao() {
+        if (matricula === matricula) {
+            // não mudamos
+        }
+    }
+
+    // ANGELINA
+
+    function cadastrarNotas() {
+        // pedir nota e o nome do aluno
+        nota = +prompt("Digite as notas")
+    }
+    // ALLAN
+    function listarAlunos() {
+        //mostrar tudo
+    }
+
+    function martiz() {
+        for (let i = 0; i < //tamanho do vetor; i++) {
+            for (let j = 0; j < tamanho do vetor; j++) {
+                // cadastra a matriz
+            } 
+        }
+    }
+
 }
