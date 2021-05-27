@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +7,19 @@
 </head>
 <body>
     <script>
-        function editarInformacao() {
-        if (matricula === matricula) {
-            // não mudamos
+        let vetor = []
+ 
+        function menu(escolha) {
+            alert("1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar aluno\n0) Sair")
+            escolha = +prompt("Qual é a sua escolha?")
         }
-    }
+        menu()
 
-
-    function listarAlunos() {
-        //mostrar tudo
-    }
-
-    function martiz() {
-        for (let i = 0; i < //tamanho do vetor; i++) {
-            for (let j = 0; j < tamanho do vetor; j++) {
-                // cadastra a matriz
-            } 
+        function cadastrarAluno(nome, matricula) {
+            vetor.push(nome) = String(prompt("Digite o nome do aluno"))
+            vetor.push(matricula) = +prompt("Digite a matrícula desse aluno")
+        }
+        cadastrarAluno()
     </script>
 </body>
 </html>
