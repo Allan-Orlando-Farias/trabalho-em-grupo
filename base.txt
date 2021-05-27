@@ -1,5 +1,5 @@
 // LUIZ
-
+let tudo = [] // adiciona tudo aqui
 while (true) {
     function menu() {
     console.log("1) Cadastrar aluno\n2)...")
@@ -8,7 +8,7 @@ while (true) {
     if (menu === 0) break
 }
 
-let alunos = []
+
 colocar uns ifs? {
     // LUCAS
 
