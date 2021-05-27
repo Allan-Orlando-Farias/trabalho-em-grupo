@@ -1,0 +1,34 @@
+function menu() {
+    console.log("1) Cadastrar aluno\n2)...")
+    let escolha = +prompt("Digite a sua escolha")
+}
+
+function cadastrandoAluno() {
+    let alunos = []
+}
+
+function editarInformacao() {
+    if (matricula === matricula) {
+        // não mudamos
+    }
+}
+
+function cadastrarNotas() {
+    nota = +prompt("Digite as notas")
+}
+
+function listarAlunos() {
+    //mostrar tudo
+}
+
+function martiz() {
+    for (let i = 0; i < 4; i++) {
+        for (let j = 0; j < 6; j++) {
+            // cadastra a matriz
+        } 
+    }
+}
+
+function finalizando() {
+    if (menu === 0) break
+}
