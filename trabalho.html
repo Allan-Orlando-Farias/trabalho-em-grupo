@@ -13,7 +13,6 @@
                 alert(`Não há aluno cadastrado com a matrícula ${matricula}.`)
                 return
             }
-
             for (let idx = 0; idx < matriz.length; idx++) {
                 if (matriz[idx][0] == matricula) {
                     matriz[idx][1] = prompt(`Altere o nome do aluno "${matriz[idx][1]}"`, matriz[idx][1])
@@ -31,7 +30,7 @@
             let metade = Math.floor(string.length / 2)
             return string.substr(0, metade) + palavra + string.substr(metade)
         }
-
+        
         function mostrarMedia(matriz) {
             calcularMedia(matriz)
             let txtResult = `${strMesmoTamanho("Matrícula", 11)}${strMesmoTamanho("Nome", 11)}${strMesmoTamanho("Nota 1", 11)}${strMesmoTamanho("Nota 2", 11)}${strMesmoTamanho("Nota 3", 11)}${strMesmoTamanho("Média", 11)}\n`
