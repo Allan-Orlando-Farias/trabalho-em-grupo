@@ -3,64 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <body>
     <script>
-        let matriz = []
+        function alteraNomeAluno(matriz, matricula) {
+            let oAluno = verificarAluno(matriz, matricula)
 
-        for (let i = 0; i < 4; i++) {
-            matriz[i] = []
-            for (let j = 0; j < 6; j++){
-                matriz[i][j] = "-"
+            if (oAluno == false) {
+                alert(`Não há aluno cadastrado com a matrícula ${matricula}.`)
+                return
             }
-        }
-        
-        matriz[0][0] = "Matrícula"
-        matriz[0][1] = "Nome"
-        matriz[0][2] = "Nota1"
-        matriz[0][3] = "Nota2"
-        matriz[0][4] = "Nota3"
-        matriz[0][5] = "Média"
-
-        function menu() {
-            while (true) {
-                let escolha = +prompt("1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar aluno\n0) Sair")
-                if (escolha === 0) {
-                    break
-                } else {
-                    switch (escolha) {
-                        case 1:
-                            cadastrarAluno()
-                            break
-                            // Cadastramos o aluno
-                        case 2:
-                            break
-                            // Editamos as informações do aluno
-                        case 3:
-                            break
-                            // Cadastramos as notas do aluno
-                        case 4:
-                            mostrandoMatriz()
-                            break
-                            // Listamos os alunos
-                    }
+            for (let idx = 0; idx < matriz.length; idx++) {
+                if (matriz[idx][0] == matricula) {
+                    matriz[idx][1] = prompt(`Altere o nome do aluno "${matriz[idx][1]}"`, matriz[idx][1])
                 }
             }
         }
-        menu()
-        
-        function mostrandoMatriz() {
-            let mostrandoMatriz = ""
 
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 6; j++) {
-                    mostrandoMatriz += matriz[i][j] + "\t"
-                }
-                mostrandoMatriz += "\n"
+        function strMesmoTamanho(palavra, tamanho) {
+            if (!palavra) {
+                palavra = "--"
             }
-            console.log(mostrandoMatriz)
+            let nChar = tamanho - palavra.length
+            let string = " ".repeat(nChar)
+
+            let metade = Math.floor(string.length / 2)
+            return string.substr(0, metade) + palavra + string.substr(metade)
         }
+        
+        function mostrarMedia(matriz) {
+            calcularMedia(matriz)
+            let txtResult = `${strMesmoTamanho("Matrícula", 11)}${strMesmoTamanho("Nome", 11)}${strMesmoTamanho("Nota 1", 11)}${strMesmoTamanho("Nota 2", 11)}${strMesmoTamanho("Nota 3", 11)}${strMesmoTamanho("Média", 11)}\n`
+            
+            for (let a = 0; a < matriz.length; a++) {
+                txtResult += `${strMesmoTamanho(matriz[a][0], 11)}${strMesmoTamanho(matriz[a][1], 11)}${strMesmoTamanho(matriz[a][2], 11)}${strMesmoTamanho(matriz[a][3], 11)}${strMesmoTamanho(matriz[a][4], 11)}${strMesmoTamanho(matriz[a][5], 11)}\n`
+            }
+
+            alert(`${txtResult}`)
+        }
+
     </script>
 </body>
 </html>
