@@ -6,59 +6,6 @@
 </head>
 <body>
     <script>
-        let matriz = []
-
-        while (true) {
-            let textMenu = +prompt(`Menu:\n 1) Cadastrar aluno\n 2) Editar Informações do aluno\n 3) Cadastrar notas de um aluno\n 4) Listar alunos\n 0) Sair`)
-
-            if (textMenu == 0) {
-                break
-            }
-
-            switch (textMenu) {
-                case 1:
-                    cadastrarAluno(matriz)
-                    break
-                case 2:
-                    alteraNomeAluno(matriz, prompt("Informe a matrícula do aluno:"))
-                    break
-                case 3:
-                    cadastrarNotas(matriz, prompt("Informe a matrícula do aluno:"))
-                    break
-                case 4:
-                    mostrarMedia(matriz)
-                    break
-                default:
-                    alert("Digite um número válido!")
-            }
-        }
-
-        function verificarAluno(matriz, matricula) {
-            let jaExiste = false
-
-            for (aluno of matriz) {
-                if (aluno[0] == matricula) {
-                    return true
-                }
-            }
-            
-            return jaExiste
-        }
-
-        function cadastrarAluno(matriz) {
-            let matNovoAluno = +prompt('Informe a matrícula do novo aluno:')
-
-            if (verificarAluno(matriz, matNovoAluno)) {
-                alert('Já existe um aluno cadastrado com esta matrícula.')
-                return
-            }
-
-            let arrNovoAluno = []
-            arrNovoAluno[0] = matNovoAluno;
-            arrNovoAluno[1] = prompt(`Informe o nome do aluno:`)
-            matriz.push(arrNovoAluno)
-        }
-
         function alteraNomeAluno(matriz, matricula) {
             let oAluno = verificarAluno(matriz, matricula)
 
@@ -74,34 +21,6 @@
             }
         }
 
-        function cadastrarNotas(matriz, matricula) {
-            let indmatriz = null
-
-            for (let ind = 0; ind < matriz.length; ind++) {
-                if (matriz[ind][0] == matricula) {
-                    indmatriz = ind
-                }
-            }
-
-            if (indmatriz != null) {
-                for (let a = 2; a < 5; a++) {
-                    matriz[indmatriz][a] = prompt(`Digite a ${[a - 1]}ª nota de ${matriz[indmatriz][1]} (matrícula: ${matriz[indmatriz][0]})`)
-                }
-            }
-
-        }
-
-        function calcularMedia(matriz) {
-            for (let i = 0; i < matriz.length; i++) {
-                let media = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
-                if (!isNaN(media)) {
-                    matriz[i][5] = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
-                } else {
-                    matriz[i][5] = (0).toFixed(2)
-                }
-            }
-        }
-        
         function strMesmoTamanho(palavra, tamanho) {
             if (!palavra) {
                 palavra = "--"
