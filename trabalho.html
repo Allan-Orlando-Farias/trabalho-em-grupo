@@ -7,7 +7,33 @@
 </head>
 <body>
     <script>
-         
+        function calcularMedia(matriz) {
+            for (let i = 0; i < matriz.length; i++) {
+                let media = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
+                if (!isNaN(media)) {
+                    matriz[i][5] = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
+                } else {
+                    matriz[i][5] = (0).toFixed(2)
+                }
+            }
+        }
+
+        function cadastrarNotas(matriz, matricula) {
+            let indmatriz = null
+
+            for (let ind = 0; ind < matriz.length; ind++) {
+                if (matriz[ind][0] == matricula) {
+                    indmatriz = ind
+                }
+            }
+
+            if (indmatriz != null) {
+                for (let a = 2; a < 5; a++) {
+                    matriz[indmatriz][a] = prompt(`Digite a ${[a - 1]}ª nota de ${matriz[indmatriz][1]} (matrícula: ${matriz[indmatriz][0]})`)
+                }
+            }
+
+        }
     </script>
 </body>
 </html>
