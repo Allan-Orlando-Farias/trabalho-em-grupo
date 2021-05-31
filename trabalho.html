@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <body>
     <script>
@@ -14,6 +13,17 @@
                     matriz[i][5] = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
                 } else {
                     matriz[i][5] = (0).toFixed(2)
+
+        function alteraNomeAluno(matriz, matricula) {
+            let oAluno = verificarAluno(matriz, matricula)
+
+            if (oAluno == false) {
+                alert(`Não há aluno cadastrado com a matrícula ${matricula}.`)
+                return
+            }
+            for (let idx = 0; idx < matriz.length; idx++) {
+                if (matriz[idx][0] == matricula) {
+                    matriz[idx][1] = prompt(`Altere o nome do aluno "${matriz[idx][1]}"`, matriz[idx][1])
                 }
             }
         }
@@ -34,6 +44,29 @@
             }
 
         }
+
+        function strMesmoTamanho(palavra, tamanho) {
+            if (!palavra) {
+                palavra = "--"
+            }
+            let nChar = tamanho - palavra.length
+            let string = " ".repeat(nChar)
+
+            let metade = Math.floor(string.length / 2)
+            return string.substr(0, metade) + palavra + string.substr(metade)
+        }
+        
+        function mostrarMedia(matriz) {
+            calcularMedia(matriz)
+            let txtResult = `${strMesmoTamanho("Matrícula", 11)}${strMesmoTamanho("Nome", 11)}${strMesmoTamanho("Nota 1", 11)}${strMesmoTamanho("Nota 2", 11)}${strMesmoTamanho("Nota 3", 11)}${strMesmoTamanho("Média", 11)}\n`
+            
+            for (let a = 0; a < matriz.length; a++) {
+                txtResult += `${strMesmoTamanho(matriz[a][0], 11)}${strMesmoTamanho(matriz[a][1], 11)}${strMesmoTamanho(matriz[a][2], 11)}${strMesmoTamanho(matriz[a][3], 11)}${strMesmoTamanho(matriz[a][4], 11)}${strMesmoTamanho(matriz[a][5], 11)}\n`
+            }
+
+            alert(`${txtResult}`)
+        }
+
     </script>
 </body>
 </html>
