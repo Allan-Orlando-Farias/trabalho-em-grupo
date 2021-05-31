@@ -6,13 +6,38 @@
 </head>
 <body>
     <script>
+        let matriz = []
+        while (true) {
+            let escolha = +prompt("1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair...")
+            if (escolha === 0) break
+            switch (escolha) {
+                case 1:
+                    cadastrarAlunos(matriz)
+                    break;
+                case 2:
+                    alteraNomeAluno(matriz, prompt("Digite a matricula"))
+                    break;
+                case 3:
+                    cadastrarNotas(matriz, prompt("Digite a matricula"))
+                    break;
+                case 4:
+                    mostrarMedia(matriz)
+                    break;              
+                default:
+                    alert("Número Inválido")
+            }         
+        }
+
         function calcularMedia(matriz) {
             for (let i = 0; i < matriz.length; i++) {
                 let media = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
                 if (!isNaN(media)) {
                     matriz[i][5] = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
                 } else {
-                    matriz[i][5] = (0).toFixed(2)
+                    matriz[i][5] = (0).toFixed(2) 
+                }  
+            }
+        }
 
         function alteraNomeAluno(matriz, matricula) {
             let oAluno = verificarAluno(matriz, matricula)
@@ -66,7 +91,6 @@
 
             alert(`${txtResult}`)
         }
-
     </script>
 </body>
 </html>
