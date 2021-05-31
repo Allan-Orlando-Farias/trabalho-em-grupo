@@ -6,37 +6,65 @@
 </head>
 <body>
     <script>
+        let matriz = []
+        
+        while (true) {
+            let escolha = +prompt("1) Cadastrar aluno\n2) Editar informações do aluno\n3) Cadastrar notas de um aluno\n4) Listar alunos\n0) Sair...")
+            if (escolha === 0) break
+          
+            switch (escolha) {
+                case 1:
+                    cadastrarAlunos(matriz)
+                    break
+                case 2:
+                    alteraNomeAluno(matriz, prompt("Digite a matricula"))
+                    break
+                case 3:
+                    cadastrarNotas(matriz, prompt("Digite a matricula"))
+                    break
+                case 4:
+                    mostrarMedia(matriz)
+                    break             
+                default:
+                    alert("Número Inválido")
+            }         
+        }
+
         function verificandoAluno(matriz , matricula) {
             let jaExiste = false
 
             for ( aluno of matriz) {
                 if (aluno[0] == matricula) {
                 return true
-            }
-        }
-        return jaExiste
-     }
+              }
+          }
+          return jaExiste
+      }
  
-    function  cadastrarAlunos(matriz) {
-        let matNovoAluno = +prompt(`Numero de matricula`)
+      function  cadastrarAlunos(matriz) {
+          let matNovoAluno = +prompt(`Numero de matricula`)
 
-        if (verificarAluno(matriz, matNovoAluno)) {
-    alert (`Este aluno ja esta cadastrado em uma matricula.`)
-    return
+          if (verificarAluno(matriz, matNovoAluno)) {
+            alert (`Este aluno ja esta cadastrado em uma matricula.`)
+            return
+          }
         }
-    }
-    let arrNovoAluno = []
-    arrNovoAluno[0] = matNovoAluno
-    arrNovoAluno[1] = (`Nome do aluno?`)
-    matriz.push(arrNovoAluno)
+      
+      let arrNovoAluno = []
+      arrNovoAluno[0] = matNovoAluno
+      arrNovoAluno[1] = (`Nome do aluno?`)
+      matriz.push(arrNovoAluno)
     
-        function calcularMedia(matriz) {
-            for (let i = 0; i < matriz.length; i++) {
-                let media = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
+      function calcularMedia(matriz) {
+          for (let i = 0; i < matriz.length; i++) {
+              let media = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
                 if (!isNaN(media)) {
                     matriz[i][5] = ((parseFloat(matriz[i][2]) + parseFloat(matriz[i][3]) + parseFloat(matriz[i][4])) / 3).toFixed(2)
                 } else {
-                    matriz[i][5] = (0).toFixed(2)
+                    matriz[i][5] = (0).toFixed(2) 
+                }  
+            }
+        }
 
         function alteraNomeAluno(matriz, matricula) {
             let oAluno = verificarAluno(matriz, matricula)
@@ -75,8 +103,8 @@
             }
             let nChar = tamanho - palavra.length
             let string = " ".repeat(nChar)
-
             let metade = Math.floor(string.length / 2)
+            
             return string.substr(0, metade) + palavra + string.substr(metade)
         }
         
@@ -90,7 +118,6 @@
 
             alert(`${txtResult}`)
         }
-
     </script>
 </body>
 </html>
